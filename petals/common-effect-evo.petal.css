@@ -9,10 +9,6 @@
  * ========================================
  */
 
-[effect] {
-  -moz-transition-duration: 2s ! important;
-}
-
 /* Fade (compatible w/ Common Effect) */
 [effect=fade] {
   opacity: 0;
