@@ -1,0 +1,388 @@
+/*
+ * Common Effect Evolution Petal
+ * ========================================
+ * Type: Effect
+ * Author: @cat_in_136
+ */
+
+/* Object Effects
+ * ========================================
+ */
+
+[effect] {
+  -moz-transition-duration: 2s ! important;
+}
+
+/* Fade (compatible w/ Common Effect) */
+[effect=fade] {
+  opacity: 0;
+
+  -webkit-transition: opacity 0.5s linear;
+  -moz-transition:    opacity 0.5s linear;
+  -ms-transition:     opacity 0.5s linear;
+  -o-transition:      opacity 0.5s linear;
+  transition:         opacity 0.5s linear;
+}
+[effect=fade][effected] {
+  opacity: 1;
+}
+
+/* Zoom In/Out (compatible w/ Common Effect) */
+[effect=zoom_in], [effect=zoom_out] {
+  -webkit-transition: -webkit-transform 0.5s linear;
+  -moz-transition:    -moz-transform    0.5s linear;
+  -ms-transition:     -ms-transform     0.5s linear;
+  -o-transition:      -o-transform      0.5s linear;
+  transition:         transform         0.5s linear;
+}
+
+[effect=zoom_in], [effect=zoom_out][effected] {
+  -webkit-transform: scale(0, 0);
+  -moz-transform:    scale(0, 0);
+  -ms-transform:     scale(0, 0);
+  -o-transform:      scale(0, 0);
+  transform:         scale(0, 0);
+}
+[effect=zoom_in][effected], [effect=zoom_out] {
+  -webkit-transform: scale(1, 1);
+  -moz-transform:    scale(1, 1);
+  -ms-transform:     scale(1, 1);
+  -o-transform:      scale(1, 1);
+  transform:         scale(1, 1);
+}
+
+/* Delay (compatible w/ Common Effect) */
+[effect=delay] {
+  visibility: hidden;
+}
+[effect=delay][effected] {
+  visibility: visible;
+}
+
+/* Appear/Disappear */
+[effect=appear], [effect=disappear][effected] {
+  visibility: hidden;
+}
+[effect=appear][effected], [effect=disappear] {
+  visibility: visible;
+}
+
+/* Fly In/Out */
+[effect=fly_in_up],    [effect=fly_out_up],    
+[effect=fly_in_right], [effect=fly_out_right], 
+[effect=fly_in_down],  [effect=fly_out_down],  
+[effect=fly_in_left],  [effect=fly_out_left]   {
+  -webkit-transition: 0.5s linear;
+  -moz-transition:    0.5s linear;
+  -ms-transition:     0.5s linear;
+  -o-transition:      0.5s linear;
+  transition:         0.5s linear;
+
+  -webkit-transition-property: visibility,-webkit-transform;
+  -moz-transition-property:    visibility,-moz-transform   ;
+  -ms-transition-property:     visibility,-ms-transform    ;
+  -o-transition-property:      visibility,-o-transform     ;
+  transition-property:         visibility,transform        ;
+
+}
+[effect=fly_in_right][effected], [effect=fly_out_right],
+[effect=fly_in_down][effected],  [effect=fly_out_down],
+[effect=fly_in_left][effected],  [effect=fly_out_left],
+[effect=fly_in_up][effected],    [effect=fly_out_up] {
+  -webkit-transform: translate(0, 0);
+  -moz-transform:    translate(0, 0);
+  -ms-transform:     translate(0, 0);
+  -o-transform:      translate(0, 0);
+  transform:         translate(0, 0);
+  visibility: visible;
+}
+[effect=fly_in_up], [effect=fly_out_down][effected] {
+  -webkit-transform: translate(0, 20em);
+  -moz-transform:    translate(0, 20em);
+  -ms-transform:     translate(0, 20em);
+  -o-transform:      translate(0, 20em);
+  transform:         translate(0, 20em);
+  visibility: hidden;
+}
+[effect=fly_in_right], [effect=fly_out_left][effected] {
+  -webkit-transform: translate(-20em, 0);
+  -moz-transform:    translate(-20em, 0);
+  -ms-transform:     translate(-20em, 0);
+  -o-transform:      translate(-20em, 0);
+  transform:         translate(-20em, 0);
+  visibility: hidden;
+}
+[effect=fly_in_down], [effect=fly_out_up][effected] {
+  -webkit-transform: translate(0, -20em);
+  -moz-transform:    translate(0, -20em);
+  -ms-transform:     translate(0, -20em);
+  -o-transform:      translate(0, -20em);
+  transform:         translate(0, -20em);
+  visibility: hidden;
+}
+[effect=fly_in_left], [effect=fly_out_right][effected] {
+  -webkit-transform: translate(20em, 0);
+  -moz-transform:    translate(20em, 0);
+  -ms-transform:     translate(20em, 0);
+  -o-transform:      translate(20em, 0);
+  transform:         translate(20em, 0);
+  visibility: hidden;
+}
+
+/* Expand/Contract */
+[effect=expand], [effect=contract] {
+  -webkit-transition: 0.5s linear;
+  -moz-transition:    0.5s linear;
+  -ms-transition:     0.5s linear;
+  -o-transition:      0.5s linear;
+  transition:         0.5s linear;
+
+  -webkit-transition-property: visibility,-webkit-transform;
+  -moz-transition-property:    visibility,-moz-transform   ;
+  -ms-transition-property:     visibility,-ms-transform    ;
+  -o-transition-property:      visibility,-o-transform     ;
+  transition-property:         visibility,transform        ;
+
+}
+[effect=expand][effected], [effect=contract] {
+  -webkit-transform: scale(1, 1);
+  -moz-transform:    scale(1, 1);
+  -ms-transform:     scale(1, 1);
+  -o-transform:      scale(1, 1);
+  transform:         scale(1, 1);
+  visibility: visible;
+}
+[effect=expand], [effect=contract][effected] {
+  -webkit-transform: scale(0, 1);
+  -moz-transform:    scale(0, 1);
+  -ms-transform:     scale(0, 1);
+  -o-transform:      scale(0, 1);
+  transform:         scale(0, 1);
+  visibility: hidden;
+}
+
+/* Fade In/Out */
+[effect=fade_in], [effect=fade_out] {
+  -webkit-transition: opacity 0.5s linear;
+  -moz-transition:    opacity 0.5s linear;
+  -ms-transition:     opacity 0.5s linear;
+  -o-transition:      opacity 0.5s linear;
+  transition:         opacity 0.5s linear;
+}
+[effect=fade_in], [effect=fade_out][effected] {
+  opacity: 0;
+}
+[effect=fade_in][effected], [effect=fade_out] {
+  opacity: 1;
+}
+
+/* Fade In/Out and Zoom */
+[effect=fade_in_zoom], [effect=fade_out_zoom] {
+  -webkit-transition: 0.5s linear;
+  -moz-transition:    0.5s linear;
+  -ms-transition:     0.5s linear;
+  -o-transition:      0.5s linear;
+  transition:         0.5s linear;
+
+  -webkit-transition-property: opacity,-webkit-transform;
+  -moz-transition-property:    opacity,-moz-transform   ;
+  -ms-transition-property:     opacity,-ms-transform    ;
+  -o-transition-property:      opacity,-o-transform     ;
+  transition-property:         opacity,transform        ;
+}
+[effect=fade_in_zoom], [effect=fade_out_zoom][effected] {
+  opacity: 0;
+
+  -webkit-transform: scale(0, 0);
+  -moz-transform:    scale(0, 0);
+  -ms-transform:     scale(0, 0);
+  -o-transform:      scale(0, 0);
+  transform:         scale(0, 0);
+}
+[effect=fade_in_zoom][effected], [effect=fade_out_zoom] {
+  opacity: 1;
+
+  -webkit-transform: scale(1, 1);
+  -moz-transform:    scale(1, 1);
+  -ms-transform:     scale(1, 1);
+  -o-transform:      scale(1, 1);
+  transform:         scale(1, 1);
+}
+
+/* Curve In/Out */
+[effect=curve_in], [effect=curve_out] {
+  -webkit-transition: -webkit-transform 0.5s ease-out;
+  -moz-transition:    -moz-transform    0.5s ease-out;
+  -ms-transition:     -ms-transform     0.5s ease-out;
+  -o-transition:      -o-transform      0.5s ease-out;
+  transition:         transform         0.5s ease-out;
+}
+[effect=curve_in], [effect=curve_out][effected] {
+  -moz-transform: rotate(90deg) translate(+20em, +20em) rotate(-90deg);
+}
+[effect=curve_in][effected], [effect=curve_out] {
+  -moz-transform: rotate(0deg) translate(0em, 0em) rotate(0deg);
+}
+
+/* Pinwheel In/Out */
+[effect=pinwheel_in], [effect=pinwheel_out] {
+  -webkit-transition: -webkit-transform 0.5s linear;
+  -moz-transition:    -moz-transform    0.5s linear;
+  -ms-transition:     -ms-transform     0.5s linear;
+  -o-transition:      -o-transform      0.5s linear;
+  transition:         transform         0.5s linear;
+}
+[effect=pinwheel_in], [effect=pinwheel_out][effected] {
+  -webkit-transform: scale(0,0) rotate(360deg);
+  -moz-transform:    scale(0,0) rotate(360deg);
+  -ms-transform:     scale(0,0) rotate(360deg);
+  -o-transform:      scale(0,0) rotate(360deg);
+  transform:         scale(0,0) rotate(360deg);
+}
+[effect=pinwheel_in][effected], [effect=pinwheel_out] {
+  -webkit-transform: scale(1,1) rotate(0deg);
+  -moz-transform:    scale(1,1) rotate(0deg);
+  -ms-transform:     scale(1,1) rotate(0deg);
+  -o-transform:      scale(1,1) rotate(0deg);
+  transform:         scale(1,1) rotate(0deg);
+}
+
+/* Ascend/Descend In/Out */
+[effect=ascend_in],  [effect=descend_out],
+[effect=descend_in], [effect=ascend_out] {
+  -webkit-transition: 0.5s linear;
+  -moz-transition:    0.5s linear;
+  -ms-transition:     0.5s linear;
+  -o-transition:      0.5s linear;
+  transition:         0.5s linear;
+
+  -webkit-transition-property: opacity,-webkit-transform;
+  -moz-transition-property:    opacity,-moz-transform   ;
+  -ms-transition-property:     opacity,-ms-transform    ;
+  -o-transition-property:      opacity,-o-transform     ;
+  transition-property:         opacity,transform        ;
+}
+[effect=ascend_in][effected],  [effect=descend_out],
+[effect=descend_in][effected], [effect=ascend_out] {
+  opacity: 1;
+
+  -webkit-transform: translate(0, 0);
+  -moz-transform:    translate(0, 0);
+  -ms-transform:     translate(0, 0);
+  -o-transform:      translate(0, 0);
+  transform:         translate(0, 0);
+}
+[effect=ascend_in],  [effect=descend_out][effected] {
+  opacity: 0;
+
+  -webkit-transform: translate(0, +2em);
+  -moz-transform:    translate(0, +2em);
+  -ms-transform:     translate(0, +2em);
+  -o-transform:      translate(0, +2em);
+  transform:         translate(0, +2em);
+}
+[effect=descend_in], [effect=ascend_out][effected] {
+  opacity: 0;
+
+  -webkit-transform: translate(0, -2em);
+  -moz-transform:    translate(0, -2em);
+  -ms-transform:     translate(0, -2em);
+  -o-transform:      translate(0, -2em);
+  transform:         translate(0, -2em);
+}
+
+/* Spin */
+[effect=spin180], [effect=spin] {
+  -webkit-transition: -webkit-transform 0.5s linear;
+  -moz-transition:    -moz-transform    0.5s linear;
+  -ms-transition:     -ms-transform     0.5s linear;
+  -o-transition:      -o-transform      0.5s linear;
+  transition:         transform         0.5s linear;
+
+  -webkit-transform: rotate(0deg);
+  -moz-transform:    rotate(0deg);
+  -ms-transform:     rotate(0deg);
+  -o-transform:      rotate(0deg);
+  transform:         rotate(0deg);
+}
+[effect=spin180][effected] {
+  -webkit-transform: rotate(180deg);
+  -moz-transform:    rotate(180deg);
+  -ms-transform:     rotate(180deg);
+  -o-transform:      rotate(180deg);
+  transform:         rotate(180deg);
+}
+[effect=spin][effected] {
+  -webkit-transform: rotate(360deg);
+  -moz-transform:    rotate(360deg);
+  -ms-transform:     rotate(360deg);
+  -o-transform:      rotate(360deg);
+  transform:         rotate(360deg);
+}
+
+/* Bold */
+[effect=bold] {
+  -webkit-transition: font-weight 0.5s linear;
+  -moz-transition:    font-weight 0.5s linear;
+  -ms-transition:     font-weight 0.5s linear;
+  -o-transition:      font-weight 0.5s linear;
+  transition:         font-weight 0.5s linear;
+
+  font-weight: 400; /* normal */
+}
+[effect=bold][effected] {
+  font-weight: 700; /* bold */
+}
+
+
+/* Page Effect
+ * ========================================
+ */
+article:not(.index_mode) section[effect=none] {
+  -webkit-transition-duration: 0ms;
+  -moz-transition-duration:    0ms;
+  -ms-transition-duration:     0ms;
+  -o-transition-duration:      0ms;
+  transition-duration:         0ms;
+}
+
+article:not(.index_mode) section[effect=fade] {
+  opacity: 0;
+
+  -webkit-transition: opacity 0.5s linear;
+  -moz-transition:    opacity 0.5s linear;
+  -ms-transition:     opacity 0.5s linear;
+  -o-transition:      opacity 0.5s linear;
+  transition:         opacity 0.5s linear;
+}
+article:not(.index_mode) section.now[effect=fade] {
+  opacity: 1;
+}
+
+article:not(.index_mode) section[effect=wipe_down],
+article:not(.index_mode) section[effect=wipe_right],
+article:not(.index_mode) section[effect=wipe_up],
+article:not(.index_mode) section[effect=wipe_left] {
+  -moz-transition:    clip 0.5s linear;
+  opacity: 1;
+}
+article:not(.index_mode) section[effect=wipe_down] {
+  clip: rect(0, 50em, 0em, 0);
+}
+article:not(.index_mode) section[effect=wipe_right] {
+  clip: rect(0, 0, 50em, 0);
+}
+article:not(.index_mode) section[effect=wipe_up] {
+  clip: rect(50em, 50em, 50em, 0);
+}
+article:not(.index_mode) section[effect=wipe_left] {
+  clip: rect(0, 50em, 50em, 50em);
+}
+article:not(.index_mode) section.now[effect=wipe_down],
+article:not(.index_mode) section.now[effect=wipe_right],
+article:not(.index_mode) section.now[effect=wipe_up],
+article:not(.index_mode) section.now[effect=wipe_left] {
+  clip: rect(0, 50em, 50em, 0);
+  opacity: 1;
+}
+
