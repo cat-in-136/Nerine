@@ -196,10 +196,12 @@ Nerine.indexMode = function(){
       MozTransform: transform,
       MsTransform: transform,
       OTransform: transform,
+      transform: transform,
       WebkitTransformOrigin: "0 0",
       MozTransformOrigin: "0 0",
       MsTransformOrigin: "0 0",
       OTransformOrigin: "0 0",
+      transformOrigin: "0 0",
       margin: '2%',
       padding: 0
     });
@@ -221,10 +223,12 @@ Nerine.indexMode = function(){
       MozTransform: null,
       MsTransform: null,
       OTransform: null,
+      transform: null,
       WebkitTransformOrigin: null,
       MozTransformOrigin: null,
       MsTransformOrigin: null,
       OTransformOrigin: null,
+      transformOrigin: null,
       margin: null,
       padding: null
     });
