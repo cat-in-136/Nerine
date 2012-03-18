@@ -329,6 +329,13 @@
 [effect=bold][effected] {
   font-weight: 700; /* bold */
 }
+/* Color */
+[effect=color]:not([effected]) {
+  color: inherit ! important;
+}
+[effect=color][effected] {
+  color: inherit;
+}
 
 
 /* Page Effect
@@ -359,7 +366,11 @@ article:not(.index_mode) section[effect=wipe_down],
 article:not(.index_mode) section[effect=wipe_right],
 article:not(.index_mode) section[effect=wipe_up],
 article:not(.index_mode) section[effect=wipe_left] {
+  -webkit-transition: clip 0.5s linear;
   -moz-transition:    clip 0.5s linear;
+  -ms-transition:     clip 0.5s linear;
+  -o-transition:      clip 0.5s linear;
+  transition:         clip 0.5s linear;
   opacity: 1;
 }
 article:not(.index_mode) section[effect=wipe_down] {
@@ -382,3 +393,104 @@ article:not(.index_mode) section.now[effect=wipe_left] {
   opacity: 1;
 }
 
+article:not(.index_mode) section[effect=slide_down],
+article:not(.index_mode) section[effect=slide_right],
+article:not(.index_mode) section[effect=slide_up],
+article:not(.index_mode) section[effect=slide_left] {
+  -webkit-transition: 0.5s linear;
+  -moz-transition:    0.5s linear;
+  -ms-transition:     0.5s linear;
+  -o-transition:      0.5s linear;
+  transition:         0.5s linear;
+
+  -webkit-transition-property: visibility,-webkit-transform;
+  -moz-transition-property:    visibility,-moz-transform   ;
+  -ms-transition-property:     visibility,-ms-transform    ;
+  -o-transition-property:      visibility,-o-transform     ;
+  transition-property:         visibility,transform        ;
+
+  opacity: 1;
+  visibility: hidden;
+}
+article:not(.index_mode) section[effect=slide_down],
+article:not(.index_mode) section.now + section[effect=slide_up] {
+  -webkit-transform: translateY(+100%);
+  -moz-transform:    translateY(+100%);
+  -ms-transform:     translateY(+100%);
+  -o-transform:      translateY(+100%);
+  transform:         translateY(+100%);
+}
+article:not(.index_mode) section[effect=slide_right],
+article:not(.index_mode) section.now + section[effect=slide_left] {
+  -webkit-transform: translateX(+100%);
+  -moz-transform:    translateX(+100%);
+  -ms-transform:     translateX(+100%);
+  -o-transform:      translateX(+100%);
+  transform:         translateX(+100%);
+}
+article:not(.index_mode) section[effect=slide_up],
+article:not(.index_mode) section.now + section[effect=slide_down] {
+  -webkit-transform: translateY(-100%);
+  -moz-transform:    translateY(-100%);
+  -ms-transform:     translateY(-100%);
+  -o-transform:      translateY(-100%);
+  transform:         translateY(-100%);
+}
+article:not(.index_mode) section[effect=slide_left],
+article:not(.index_mode) section.now + section[effect=slide_right] {
+  -webkit-transform: translateX(-100%);
+  -moz-transform:    translateX(-100%);
+  -ms-transform:     translateX(-100%);
+  -o-transform:      translateX(-100%);
+  transform:         translateX(-100%);
+}
+article:not(.index_mode) section.now[effect=slide_down],
+article:not(.index_mode) section.now[effect=slide_right],
+article:not(.index_mode) section.now[effect=slide_up],
+article:not(.index_mode) section.now[effect=slide_left] {
+  -webkit-transform: translate(0, 0);
+  -moz-transform:    translate(0, 0);
+  -ms-transform:     translate(0, 0);
+  -o-transform:      translate(0, 0);
+  transform:         translate(0, 0);
+  visibility: visible;
+}
+
+article:not(.index_mode) section[effect=cube3d] {
+  -webkit-transition: 1s ease;
+  -moz-transition:    1s ease;
+  -ms-transition:     1s ease;
+  -o-transition:      1s ease;
+  transition:         1s ease;
+
+  -webkit-transition-property: visibility,-webkit-transform;
+  -moz-transition-property:    visibility,-moz-transform   ;
+  -ms-transition-property:     visibility,-ms-transform    ;
+  -o-transition-property:      visibility,-o-transform     ;
+  transition-property:         visibility,transform        ;
+
+  opacity: 1;
+  visibility: hidden;
+
+  -webkit-transform: rotateY(+90deg);
+  -moz-transform:    rotateY(+90deg);
+  -ms-transform:     rotateY(+90deg);
+  -o-transform:      rotateY(+90deg);
+  transform:         rotateY(+90deg);
+  -moz-transform-origin: 50% 50% 200px;
+}
+article:not(.index_mode) section.now[effect=cube3d] {
+  -webkit-transform: rotateY(0deg);
+  -moz-transform:    rotateY(0deg);
+  -ms-transform:     rotateY(0deg);
+  -o-transform:      rotateY(0deg);
+  transform:         rotateY(0deg);
+  visibility: visible;
+}
+article:not(.index_mode) section.now + section[effect=cube3d] {
+  -webkit-transform: rotateY(-90deg);
+  -moz-transform:    rotateY(-90deg);
+  -ms-transform:     rotateY(-90deg);
+  -o-transform:      rotateY(-90deg);
+  transform:         rotateY(-90deg);
+}
